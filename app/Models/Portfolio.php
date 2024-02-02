@@ -11,6 +11,10 @@ class Portfolio extends Model
     protected $fillable = [
         "title",
         "description",
-        "thumb"
+        "thumb",
+        "type_id"
     ];
+    public function type(){
+        return $this->belongsTo(Type::class);
+    }
 }

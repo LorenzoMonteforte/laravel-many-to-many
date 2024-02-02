@@ -10,8 +10,9 @@
 <body>
     <a href="{{ route('admin.portfolios.create') }}">Aggiungi</a>
     @for ($i=0; $i<sizeof($portfolios); $i++)
-        <div>{{ $portfolios[$i]["title"] }}</div>
-        <div>{{ $portfolios[$i]["description"] }}</div>
+        <div>{{ $portfolios[$i]->title }}</div>
+        <div>{{ $portfolios[$i]->description }}</div>
+        <div>{{ $portfolios[$i]->type?->title}}</div>
         <img src="{{ $portfolios[$i]["thumb"] }}" alt="">
         <a href="{{ route('admin.portfolios.edit', $portfolios[$i]['id'] ) }}">Modifica</a>
         <form action="{{ route('admin.portfolios.destroy', $portfolios[$i]['id'] ) }}" method="POST">

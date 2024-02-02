@@ -15,10 +15,16 @@ class PortfolioSeeder extends Seeder
     {
         $portfolios = [
             [
-                "title" => "Porfolio di Lorenzo",
-                "description" => "Porfolio magnifico di Lorenzo Monteforte",
+                "title" => "Portfolio di Lorenzo",
+                "description" => "Portfolio magnifico di Lorenzo Monteforte",
                 "thumb" => "https://s.tmimgcdn.com/scr/1200x750/339200/portfolio-di-architettura-portfolio-design-modello-portfolio-interni_339244-original.jpg"
-            ]
+            ],
+            [
+                "title" => "Porfolio di Nicole",
+                "description" => "Porfolio magnifico di Nicole",
+                "thumb" => "https://img.freepik.com/free-vector/gradient-interview-portfolio-template_23-2149220443.jpg",
+                "type_id" => 1
+            ],
         ];
         
         for($i=0; $i<sizeof($portfolios); $i++){
@@ -26,6 +32,9 @@ class PortfolioSeeder extends Seeder
             $new_portfolio->title = $portfolios[$i]["title"];
             $new_portfolio->description = $portfolios[$i]["description"];
             $new_portfolio->thumb = $portfolios[$i]["thumb"];
+            if(isset($portfolios[$i]["type_id"])){
+                $new_portfolio->type_id = $portfolios[$i]["type_id"];
+            }
             $new_portfolio->save();
         }
     }
